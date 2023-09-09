@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EduBook Category</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/bootstrap-table.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<style>
+  
+
+h1 {
+    color: #333;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 8px;
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="/index.html"><span>Edu</span>Book</a>
+						<ul class="user-menu">
+							<li class="dropdown pull-right">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Admin <span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Hồ sơ</a></li>
+									<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Đăng xuất</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+									
+				</div><!-- /.container-fluid -->
+			</nav>
+            <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+				<ul class="nav menu">
+					<li><a href="category.html"><svg class="glyph stroked open folder"><use xlink:href="#stroked-open-folder"/></svg>Quản lý danh mục</a></li>
+					<li><a href="product.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Quản lý sản phẩm</a></li>
+					<li><a href="dondathang.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Quản lý đơn đặt hàng</a></li>
+                    <li><a href="xulydonhang.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Xử lý đơn hàng</a></li>
+                    <li><a href="phanhoi.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Phản hồi </a></li>
+                    <li><a href="nhanviengiaohang.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Nhân viên giao hàng </a></li>
+                    <li><a href="chinhsuathongtin.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Chỉnh sửa thông tin</a></li>
+                    <li><a href="doimatkhau.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Đổi mật khẩu </a></li>
+                    <li><a href="quanlynguoidung.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Quản lý người dùng  </a></li>
+                    <li><a href="../index.html"><svg class="glyph stroked open folder"><use xlink:href="#stroked-open-folder"/></svg>Đăng xuất </a></li>
+				</ul>
+		
+			</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Quản lý danh mục</li>
+			</ol>
+		</div><!--/.row-->
+		
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Quản Lý Đơn Đặt Hàng</h1>
+			</div>
+		</div><!--/.row-->
+		
+		<div class="row">
+			<div class="col-md-12">
+					<div class="panel panel-default">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Mã Đơn Hàng</th>
+                                    <th>Ngày Đặt</th>
+                                    <th>Tên Khách Hàng</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Sản Phẩm</th>
+                                    <th>Số Lượng</th>
+                                    <th>Thành Tiền</th>
+                                    <th>Thao Tác</th> <!-- Cột thao tác -->
+                                </tr>
+                            </thead>
+                            <tbody id="order-list">
+                                <!-- Dữ liệu đơn đặt hàng sẽ được hiển thị ở đây -->
+                                <tr>
+                                    <td>DH003</td>
+                                    <td>2023-09-10</td>
+                                    <td>Khách Hàng C</td>
+                                    <td>Chưa Giao Hàng</td>
+                                    <td>Chuyện con mèo dạy hải âu bay</td>
+                                    <td>2</td>
+                                    <td>200000</td>
+                                    <td>
+                                    <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                                </td>
+                                </tr>
+                                                                    
+                                    <!-- Thêm các hàng đơn đặt hàng mới ở đây -->
+                                    <tr>
+                                        <td>DH004</td>
+                                        <td>2023-09-12</td>
+                                        <td>Khách Hàng D</td>
+                                        <td>Đã Giao Hàng</td>
+                                        <td>Chuyện con mèo dạy hải âu bay</td>
+                                        <td>4</td>
+                                        <td>400000</td>
+                                        <td>
+                                            <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
+                                            <a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>DH005</td>
+                                        <td>2023-09-14</td>
+                                        <td>Khách Hàng E</td>
+                                        <td>Chưa Giao Hàng</td>
+                                        <td>Chuyện con mèo dạy hải âu bay</td>
+                                        <td>3</td>
+                                        <td>300000</td>
+                                        <td>
+                                            <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
+                                            <a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                                        </td>
+                                    </tr>
+
+                            </tbody>
+                        </table>
+            
+                        <script src="script.js"></script>
+						</div>
+			</div>
+		</div><!--/.row-->
+	</div>	<!--/.main-->
+<script>
+    // Dữ liệu cố định cho đơn đặt hàng
+const orders = [
+    {
+        maDonHang: 'DH001',
+        ngayDat: '2023-09-07',
+        tenKhachHang: 'Khách Hàng A',
+        trangThai: 'Đã Giao Hàng',
+        sanPham: 'Chuyện con mèo dạy hải âu bay',
+        soLuong: 5,
+        thanhTien: 500000
+    },
+    {
+        maDonHang: 'DH002',
+        ngayDat: '2023-09-08',
+        tenKhachHang: 'Khách Hàng B',
+        trangThai: 'Tôi Thích Một Cô Gái Nhưng Chẳng Dám Ngỏ Lời',
+        sanPham: 'Sản Phẩm 2',
+        soLuong: 3,
+        thanhTien: 300000
+    },
+    // Thêm dữ liệu đơn đặt hàng khác ở đây
+];
+
+// Hiển thị dữ liệu đơn đặt hàng trên trang web
+const orderList = document.getElementById('order-list');
+
+orders.forEach(order => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td>${order.maDonHang}</td>
+        <td>${order.ngayDat}</td>
+        <td>${order.tenKhachHang}</td>
+        <td>${order.trangThai}</td>
+        <td>${order.sanPham}</td>
+        <td>${order.soLuong}</td>
+        <td>${order.thanhTien}</td>
+    `;
+    orderList.appendChild(row);
+    const addActionButton = (row, hasActions) => {
+            if (hasActions) {
+                const actions = document.createElement('td');
+                actions.classList.add('form-group');
+                actions.innerHTML = `
+                    <a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
+                    <a href="#" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                `;
+                row.appendChild(actions);
+            } else {
+                row.innerHTML += '<td></td>'; // Thêm cột trống cho hàng không có nút sửa và xóa
+            }
+        };
+
+        orders.forEach((order, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${order.maDonHang}</td>
+                <td>${order.ngayDat}</td>
+                <td>${order.tenKhachHang}</td>
+                <td>${order.trangThai}</td>
+                <td>${order.sanPham}</td>
+                <td>${order.soLuong}</td>
+                <td>${order.thanhTien}</td>
+            `;
+            // Chỉ thêm nút sửa và xóa cho hàng thứ hai
+            addActionButton(row, index === 1);
+            orderList.appendChild(row);
+        });
+
+</script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-table.js"></script>	
+</body>
+
+</html>

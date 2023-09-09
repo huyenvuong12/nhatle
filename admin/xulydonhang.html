@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EduBook Category</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/bootstrap-table.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<style>
+  
+
+h1 {
+    color: #333;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 8px;
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="/index.html"><span>Edu</span>Book</a>
+						<ul class="user-menu">
+							<li class="dropdown pull-right">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Admin <span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Hồ sơ</a></li>
+									<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Đăng xuất</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+									
+				</div><!-- /.container-fluid -->
+			</nav>
+		
+			<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+				<ul class="nav menu">
+					<li><a href="category.html"><svg class="glyph stroked open folder"><use xlink:href="#stroked-open-folder"/></svg>Quản lý danh mục</a></li>
+					<li><a href="product.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Quản lý sản phẩm</a></li>
+					<li><a href="dondathang.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Quản lý đơn đặt hàng</a></li>
+                    <li><a href="xulydonhang.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Xử lý đơn hàng</a></li>
+                    <li><a href="phanhoi.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Phản hồi </a></li>
+                    <li><a href="nhanviengiaohang.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Nhân viên giao hàng </a></li>
+                    <li><a href="chinhsuathongtin.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Chỉnh sửa thông tin</a></li>
+                    <li><a href="doimatkhau.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Đổi mật khẩu </a></li>
+                    <li><a href="quanlynguoidung.html"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Quản lý người dùng  </a></li>
+                    <li><a href="../index.html"><svg class="glyph stroked open folder"><use xlink:href="#stroked-open-folder"/></svg>Đăng xuất </a></li>
+				</ul>
+		
+			</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Xử Lý Đơn Hàng</li>
+			</ol>
+		</div><!--/.row-->
+		
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Quản Lý Đơn Đặt Hàng</h1>
+			</div>
+		</div><!--/.row-->
+		
+		<div class="row">
+			<div class="col-md-12">
+					<div class="panel panel-default">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Mã Đơn Hàng</th>
+                                    <th>Ngày Đặt</th>
+                                    <th>Tên Khách Hàng</th>
+                                    <th>Sản Phẩm</th>
+                                    <th>Số Lượng</th>
+                                    <th>Thành Tiền</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Thao Tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="order-list">
+                                <!-- Dữ liệu đơn hàng sẽ được hiển thị ở đây -->
+                            </tbody>
+                        </table>
+            
+                        <script src="script.js"></script>
+						</div>
+			</div>
+		</div><!--/.row-->
+	</div>	<!--/.main-->
+<script>
+ // Dữ liệu cố định cho danh sách đơn hàng
+const orders = [
+    {
+        maDonHang: 'DH001',
+        ngayDat: '2023-09-07',
+        tenKhachHang: 'Khách Hàng A',
+        sanPham: 'Chuyện con mèo dạy hải âu bay',
+        soLuong: 5,
+        thanhTien: 500000,
+        trangThai: 'Đã Giao Hàng'
+    },
+    {
+        maDonHang: 'DH002',
+        ngayDat: '2023-09-08',
+        tenKhachHang: 'Khách Hàng B',
+        sanPham: 'Sản Phẩm 2',
+        soLuong: 3,
+        thanhTien: 300000,
+        trangThai: 'Chưa Giao Hàng'
+    },
+    // Thêm dữ liệu đơn hàng khác ở đây
+];
+
+// Hiển thị danh sách đơn hàng trên trang web
+const orderList = document.getElementById('order-list');
+
+function renderOrderList() {
+    orderList.innerHTML = '';
+
+    orders.forEach(order => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${order.maDonHang}</td>
+            <td>${order.ngayDat}</td>
+            <td>${order.tenKhachHang}</td>
+            <td>${order.sanPham}</td>
+            <td>${order.soLuong}</td>
+            <td>${order.thanhTien}</td>
+            <td>${order.trangThai}</td>
+            <td>
+                <button class="change-status-btn" data-order-id="${order.maDonHang}">Xử lý đơn hàng</button>
+            </td>
+        `;
+
+        row.querySelector('.change-status-btn').addEventListener('click', () => {
+            toggleOrderStatus(order.maDonHang);
+        });
+
+        orderList.appendChild(row);
+    });
+}
+
+function toggleOrderStatus(orderId) {
+    const orderToUpdate = orders.find(order => order.maDonHang === orderId);
+
+    if (orderToUpdate) {
+        orderToUpdate.trangThai = orderToUpdate.trangThai === 'Đã Giao Hàng' ? 'Chưa Giao Hàng' : 'Đã Giao Hàng';
+        renderOrderList();
+    }
+}
+
+renderOrderList();
+
+
+</script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-table.js"></script>	
+</body>
+
+</html>
